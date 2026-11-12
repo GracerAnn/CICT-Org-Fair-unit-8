@@ -16,7 +16,6 @@
 import 'package:http/http.dart' as http;
 
 import 'data/cms/contentful_source.dart';
-import 'data/cms/sanity_source.dart';
 import 'data/cms/strapi_source.dart';
 import 'data/event_source.dart';
 import 'data/sample_events.dart';
@@ -42,12 +41,6 @@ EventSource createEventSource(http.Client client) {
     'contentful' => ContentfulEventSource(
       client,
       spaceId: cmsSpace,
-      token: cmsToken,
-    ),
-    'sanity' => SanityEventSource(
-      client,
-      projectId: cmsProject,
-      dataset: cmsDataset,
       token: cmsToken,
     ),
     _ => SampleEventSource(),
